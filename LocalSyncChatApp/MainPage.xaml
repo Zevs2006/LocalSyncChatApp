@@ -1,0 +1,31 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LocalSyncChatApp.MainPage"
+             Title="Local Sync Chat">
+    <VerticalStackLayout Padding="20" Spacing="10">
+
+        <!-- Ввод имени пользователя -->
+        <HorizontalStackLayout Spacing="10">
+            <Entry x:Name="UserNameEntry" Placeholder="Введите имя пользователя" WidthRequest="250" />
+            <Button Text="Сохранить" WidthRequest="100" Clicked="SaveUserInfo" />
+        </HorizontalStackLayout>
+
+        <!-- Список сообщений -->
+        <CollectionView x:Name="MessageList" HeightRequest="400">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="5" Padding="10" BackgroundColor="LightGray" CornerRadius="10">
+                        <Label Text="{Binding Message}" />
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Поле ввода сообщения и кнопка отправки -->
+        <HorizontalStackLayout Spacing="10">
+            <Entry x:Name="MessageEntry" Placeholder="Введите сообщение" WidthRequest="250" />
+            <Button Text="Отправить" WidthRequest="100" Clicked="SendMessage" />
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>
